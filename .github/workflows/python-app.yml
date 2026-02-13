@@ -34,7 +34,7 @@ jobs:
         # Example: check if app.py runs without syntax error
         python -m py_compile app.py
         python -m py_compile utils.py
-        python -m py_compile summarize.py
+        python -m py_compile summarizer.py
         python -m py_compile youtube_utils.py
 
     - name: Lint with flake8
