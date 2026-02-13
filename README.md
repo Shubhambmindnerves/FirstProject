@@ -26,7 +26,7 @@ Summaries can also be downloaded as **PDF**.
 ## Installation
 
 1. Clone the repo:
-git clone https://github.com/yourusername/YouSumm.git
+git clone https://github.com/Shubhambmindnerves/FirstProject.git
 cd YouSumm
 Create virtual environment:
 
