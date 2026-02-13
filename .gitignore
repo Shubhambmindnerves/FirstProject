@@ -1,0 +1,17 @@
+__pycache__/
+.env
+*.ini
+alembic/
+.idea/
+*.env
+
+supervisord.conf
+venv/
+logs/
+.env.*
+.env
+keys/
+api-test.py
+.scannerwork/
+sonar-project.properties
+sonar.exclusions=venv/**/*, **/logs/*

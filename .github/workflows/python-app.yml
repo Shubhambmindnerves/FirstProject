@@ -1,0 +1,50 @@
+name: YouSumm CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.11]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run basic tests
+      run: |
+        # Example: check if app.py runs without syntax error
+        python -m py_compile app.py
+        python -m py_compile utils.py
+        python -m py_compile summarize.py
+        python -m py_compile youtube_utils.py
+
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        flake8 .
+
+    # Optional: deploy to Streamlit sharing or server
+    # - name: Deploy to Streamlit
+    #   uses: streamlit/action@v1
+    #   with:
+    #     streamlit_token: ${{ secrets.STREAMLIT_TOKEN }}
+    #     app_file: "app.py"
